@@ -16,7 +16,7 @@ int main()
 	platform.setIcon(window.getSystemHandle());
 
 	sf::Shader shader;
-	if (!shader.loadFromFile("content/shader.frag", sf::Shader::Fragment))
+	if (!shader.loadFromFile("content/shader.vert", sf::Shader::Vertex))
 	{
 		throw "Shaders not available!";
 	}
