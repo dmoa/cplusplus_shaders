@@ -15,6 +15,12 @@ int main()
 	window.create(sf::VideoMode(200.0f * screenScalingFactor, 200.0f * screenScalingFactor), "SFML works!");
 	platform.setIcon(window.getSystemHandle());
 
+	sf::Shader shader;
+	if (!shader.loadFromFile("content/shader.frag", sf::Shader::Fragment))
+	{
+		throw "Shaders not available!";
+	}
+
 	sf::CircleShape shape(window.getSize().x / 2);
 	shape.setFillColor(sf::Color::White);
 
@@ -33,7 +39,7 @@ int main()
 		}
 
 		window.clear();
-		window.draw(shape);
+		window.draw(shape, &shader);
 		window.display();
 	}
 
